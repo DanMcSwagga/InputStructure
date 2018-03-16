@@ -92,7 +92,7 @@ public class Subscriber {
         return "Full name: " + name + ' ' + middlename + ' ' + surname + ';' +
                 "\nNickname: " + nickname + ";\nGroup: " + toStringGroup() + ';' +
                 "\nTelephone: " + telephoneNumber + ';' +
-                "\nMobile phone #1: " + mobNumberPrimary + ", Mobile phone #2:" + mobNumberSecondary + ';' +
+                "\nMobile phone #1: " + mobNumberPrimary + ", Mobile phone #2: " + mobNumberSecondary + ';' +
                 "\nEmail: " + email + ", Skype: " + skype + ';' + address;
     }
 }

@@ -4,6 +4,7 @@ import ua.kpi.Model.Address;
 import ua.kpi.Model.GroupAffiliation;
 import ua.kpi.Model.Record;
 import ua.kpi.Model.Subscriber;
+import ua.kpi.InputMessages;
 
 import java.util.Scanner;
 import java.util.Date;
@@ -32,16 +33,16 @@ public class Controller {
 
         Subscriber sub = new Subscriber();
 
-        sub.setSurname(inputString(sc, regexString, View.INPUT_SURNAME, View.WRONG_INPUT_STRING));
-        sub.setName(inputString(sc, regexString, View.INPUT_NAME, View.WRONG_INPUT_STRING));
-        sub.setMiddlename(inputString(sc, regexString, View.INPUT_MIDDLENAME, View.WRONG_INPUT_STRING));
-        sub.setNickname(inputString(sc, regexString, View.INPUT_NICKNAME, View.WRONG_INPUT_STRING));
+        sub.setSurname(inputString(sc, regexString, InputMessages.INPUT_SURNAME, InputMessages.WRONG_INPUT_STRING));
+        sub.setName(inputString(sc, regexString, InputMessages.INPUT_NAME, InputMessages.WRONG_INPUT_STRING));
+        sub.setMiddlename(inputString(sc, regexString, InputMessages.INPUT_MIDDLENAME, InputMessages.WRONG_INPUT_STRING));
+        sub.setNickname(inputString(sc, regexString, InputMessages.INPUT_NICKNAME, InputMessages.WRONG_INPUT_STRING));
         sub.setGroup(inputGroupAffiliation(sc));
-        sub.setTelephoneNumber(inputString(sc, regexTelephoneNumber, View.INPUT_TELEPHONE_NUMBER, View.WRONG_INPUT_PHONE_NUMBER));
-        sub.setMobNumberPrimary(inputString(sc, regexMobNumber, View.INPUT_MOB_NUMBER_PRIMARY, View.WRONG_INPUT_PHONE_NUMBER));
-        sub.setMobNumberSecondary(inputString(sc, regexMobNumber, View.INPUT_MOB_NUMBER_SECONDARY, View.WRONG_INPUT_PHONE_NUMBER));
-        sub.setEmail(inputString(sc, regexEmail, View.INPUT_EMAIL, View.WRONG_INPUT_STRING));
-        sub.setSkype(inputString(sc, regexString, View.INPUT_SKYPE, View.WRONG_INPUT_STRING));
+        sub.setTelephoneNumber(inputString(sc, regexTelephoneNumber, InputMessages.INPUT_TELEPHONE_NUMBER, InputMessages.WRONG_INPUT_PHONE_NUMBER));
+        sub.setMobNumberPrimary(inputString(sc, regexMobNumber, InputMessages.INPUT_MOB_NUMBER_PRIMARY, InputMessages.WRONG_INPUT_PHONE_NUMBER));
+        sub.setMobNumberSecondary(inputString(sc, regexMobNumber, InputMessages.INPUT_MOB_NUMBER_SECONDARY, InputMessages.WRONG_INPUT_PHONE_NUMBER));
+        sub.setEmail(inputString(sc, regexEmail, InputMessages.INPUT_EMAIL, InputMessages.WRONG_INPUT_STRING));
+        sub.setSkype(inputString(sc, regexString, InputMessages.INPUT_SKYPE, InputMessages.WRONG_INPUT_STRING));
         sub.setAddress(inputAddress(sc));
 
         this.record = new Record(sub, new Date(), new Date());
@@ -51,7 +52,7 @@ public class Controller {
 
 
     private GroupAffiliation inputGroupAffiliation(Scanner sc) {
-        view.printMessage(View.INPUT_GROUP);
+        view.printMessage(InputMessages.INPUT_GROUP);
         while (true) {
             switch (sc.nextInt()) {
                 case 1:
@@ -63,7 +64,7 @@ public class Controller {
                 case 4:
                     return GroupAffiliation.ADVANCED;
             }
-            view.printMessage(View.WRONG_INPUT_GROUP);
+            view.printMessage(InputMessages.WRONG_INPUT_GROUP);
         }
     }
 
@@ -84,11 +85,11 @@ public class Controller {
     }
 
     private Address inputAddress(Scanner sc) {
-        String zipCode = inputString(sc, regexNumber, View.INPUT_ZIP_CODE, View.WRONG_INPUT_NUMBER);
-        String cityOfResidence = inputString(sc, regexString, View.INPUT_CITY, View.WRONG_INPUT_STRING);
-        String street = inputString(sc, regexString, View.INPUT_STREET, View.WRONG_INPUT_STRING);
-        String houseNumber = inputString(sc, regexAddressHouseNumber, View.INPUT_HOUSE_NUMBER, View.WRONG_INPUT_NUMBER);
-        String apartmentNumber = inputString(sc, regexNumber, View.INPUT_APARTMENT_NUMBER, View.WRONG_INPUT_NUMBER);
+        String zipCode = inputString(sc, regexNumber, InputMessages.INPUT_ZIP_CODE, InputMessages.WRONG_INPUT_NUMBER);
+        String cityOfResidence = inputString(sc, regexString, InputMessages.INPUT_CITY, InputMessages.WRONG_INPUT_STRING);
+        String street = inputString(sc, regexString, InputMessages.INPUT_STREET, InputMessages.WRONG_INPUT_STRING);
+        String houseNumber = inputString(sc, regexAddressHouseNumber, InputMessages.INPUT_HOUSE_NUMBER, InputMessages.WRONG_INPUT_NUMBER);
+        String apartmentNumber = inputString(sc, regexNumber, InputMessages.INPUT_APARTMENT_NUMBER, InputMessages.WRONG_INPUT_NUMBER);
 
         return new Address(zipCode, cityOfResidence, street, houseNumber, apartmentNumber);
     }
