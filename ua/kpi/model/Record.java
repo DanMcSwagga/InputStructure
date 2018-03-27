@@ -1,4 +1,4 @@
-package ua.kpi.Model;
+package ua.kpi.model;
 
 import java.util.Date;
 

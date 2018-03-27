@@ -1,6 +1,6 @@
 package ua.kpi;
 
-import ua.kpi.Model.Record;
+import ua.kpi.controller.Controller;
 
 public class Main {
 
