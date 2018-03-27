@@ -67,7 +67,7 @@ public class Controller {
         bookOfRecords.addRecord(sub2, new Date(), new Date());
         bookOfRecords.addRecord(sub3, new Date(), new Date());
 
-        System.out.println(bookOfRecords.toString());
+        bookOfRecords.display();
     }
 
 

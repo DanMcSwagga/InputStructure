@@ -18,6 +18,10 @@ public class BookOfRecords {
         this.bookOfRecords.add(new Record(sub, dateOfCreation, dateOfLastChange));
     }
 
+    public void display() {
+        System.out.println(toString());
+    }
+
     @Override
     public String toString() {
         StringBuilder concatString = new StringBuilder();
