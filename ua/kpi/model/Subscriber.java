@@ -1,6 +1,6 @@
 package ua.kpi.model;
 
-public class Subscriber {
+public class Subscriber implements GroupTextConstants {
     private String surname;
     private String name;
     private String middlename;
@@ -13,12 +13,6 @@ public class Subscriber {
     private String skype;
     private Address address;
 
-    // Text constants
-    private String GROUP_LOW = "Low";
-    private String GROUP_INTERMEDIATE = "Intermediate";
-    private String GROUP_HIGH = "High";
-    private String GROUP_ADVANCED = "Advanced";
-    private String GROUP_DEFAULT = "Default";
 
     public Subscriber() {
         name = "";

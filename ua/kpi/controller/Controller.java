@@ -13,61 +13,62 @@ import static ua.kpi.controller.RegexContainer.*;
 
 public class Controller {
     private BookOfRecords bookOfRecords;
-    private Record record;
     private View view;
 
     public Controller(View view) {
         this.view = view;
+        this.bookOfRecords = new BookOfRecords();
     }
 
     public void processUser(){
         Scanner sc = new Scanner(System.in);
 
-//        Subscriber sub1 = new Subscriber();
-//        sub.setSurname(inputString(sc, regexString, InputMessages.INPUT_SURNAME, InputMessages.WRONG_INPUT_STRING));
-//        sub.setName(inputString(sc, regexString, InputMessages.INPUT_NAME, InputMessages.WRONG_INPUT_STRING));
-//        sub.setMiddlename(inputString(sc, regexString, InputMessages.INPUT_MIDDLENAME, InputMessages.WRONG_INPUT_STRING));
-//        sub.setNickname(inputString(sc, regexString, InputMessages.INPUT_NICKNAME, InputMessages.WRONG_INPUT_STRING));
-//        sub.setGroup(inputGroupAffiliation(sc));
-//        sub.setTelephoneNumber(inputString(sc, regexTelephoneNumber, InputMessages.INPUT_TELEPHONE_NUMBER, InputMessages.WRONG_INPUT_PHONE_NUMBER));
-//        sub.setMobNumberPrimary(inputString(sc, regexMobNumber, InputMessages.INPUT_MOB_NUMBER_PRIMARY, InputMessages.WRONG_INPUT_PHONE_NUMBER));
-//        sub.setMobNumberSecondary(inputString(sc, regexMobNumber, InputMessages.INPUT_MOB_NUMBER_SECONDARY, InputMessages.WRONG_INPUT_PHONE_NUMBER));
-//        sub.setEmail(inputString(sc, regexEmail, InputMessages.INPUT_EMAIL, InputMessages.WRONG_INPUT_STRING));
-//        sub.setSkype(inputString(sc, regexString, InputMessages.INPUT_SKYPE, InputMessages.WRONG_INPUT_STRING));
-//        sub.setAddress(inputAddress(sc));
 
+        /* temporary subs - for testing purposes */
         Subscriber sub2 = new Subscriber();
-        sub2.setSurname("stets");
-        sub2.setName("dan");
+        sub2.setSurname("stetsasdasf");
+        sub2.setName("asfafwwwe");
         sub2.setMiddlename("olego");
         sub2.setNickname("bruh");
         sub2.setGroup(GroupAffiliation.INTERMEDIATE);
-        sub2.setTelephoneNumber("467-25-06");
-        sub2.setMobNumberPrimary("467-333-25-06");
-        sub2.setMobNumberSecondary("098-330-88-47");
-        sub2.setEmail("denyast@ukr.net");
-        sub2.setSkype("denyas");
+        sub2.setTelephoneNumber("462-11-06");
+        sub2.setMobNumberPrimary("478-324-25-06");
+        sub2.setMobNumberSecondary("098-335-82-47");
+        sub2.setEmail("denssssast@afsr.net");
+        sub2.setSkype("dsfwra");
         sub2.setAddress(new Address("04086", "Kyiv", "Olzhycha", "12", "2"));
 
-        Subscriber sub3 = new Subscriber();
-        sub3.setSurname("stetsest");
-        sub3.setName("danests");
-        sub3.setMiddlename("olegoset");
-        sub3.setNickname("bruhsdf");
-        sub3.setGroup(GroupAffiliation.INTERMEDIATE);
-        sub3.setTelephoneNumber("467-25-06");
-        sub3.setMobNumberPrimary("467-333-25-06");
-        sub3.setMobNumberSecondary("098-330-88-47");
-        sub3.setEmail("denyast@ukr.net");
-        sub3.setSkype("denyas");
-        sub3.setAddress(new Address("04086", "Kyiv", "Olzhycha", "12", "2"));
 
-        BookOfRecords bookOfRecords = new BookOfRecords();
+        Subscriber sub3 = new Subscriber("stetsest", "danests", "olegoset", "brutha", GroupAffiliation.LOW,
+                "467-25-06", "467-333-25-06", "098-330-88-47", "denyast@ukr.net", "denyas",
+                new Address("04086", "Kyiv", "Olzhycha", "12", "2"));
 
         bookOfRecords.addRecord(sub2, new Date(), new Date());
         bookOfRecords.addRecord(sub3, new Date(), new Date());
 
+        //Subscriber sub = inputSingleSubscriber(sc);
+
+        //bookOfRecords.addRecord(sub, new Date(), new Date());
+
         bookOfRecords.display();
+    }
+
+    private Subscriber inputSingleSubscriber(Scanner sc) {
+        Subscriber sub = new Subscriber();
+
+        sub.setSurname(inputString(sc, regexString, InputMessages.INPUT_SURNAME, InputMessages.WRONG_INPUT_STRING));
+        sub.setName(inputString(sc, regexString, InputMessages.INPUT_NAME, InputMessages.WRONG_INPUT_STRING));
+        sub.setMiddlename(inputString(sc, regexString, InputMessages.INPUT_MIDDLENAME, InputMessages.WRONG_INPUT_STRING));
+        sub.setNickname(inputString(sc, regexString, InputMessages.INPUT_NICKNAME, InputMessages.WRONG_INPUT_STRING));
+        sub.setGroup(inputGroupAffiliation(sc));
+        sub.setTelephoneNumber(inputString(sc, regexTelephoneNumber, InputMessages.INPUT_TELEPHONE_NUMBER, InputMessages.WRONG_INPUT_PHONE_NUMBER));
+        sub.setMobNumberPrimary(inputString(sc, regexMobNumber, InputMessages.INPUT_MOB_NUMBER_PRIMARY, InputMessages.WRONG_INPUT_PHONE_NUMBER));
+        sub.setMobNumberSecondary(inputString(sc, regexMobNumber, InputMessages.INPUT_MOB_NUMBER_SECONDARY, InputMessages.WRONG_INPUT_PHONE_NUMBER));
+        sub.setEmail(inputString(sc, regexEmail, InputMessages.INPUT_EMAIL, InputMessages.WRONG_INPUT_STRING));
+        sub.setSkype(inputString(sc, regexString, InputMessages.INPUT_SKYPE, InputMessages.WRONG_INPUT_STRING));
+        sub.setAddress(inputAddress(sc));
+
+        return sub;
     }
 
 
