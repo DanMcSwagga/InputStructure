@@ -34,7 +34,7 @@ public class BookOfRecords {
             addRecord(record);
             return true;
         } catch (NullPointerException | DataException e) {
-            System.out.println(e);
+            System.err.print(e);
             return false;
         }
     }

@@ -13,6 +13,6 @@ public class DataException extends Exception {
 
     @Override
     public String toString() {
-        return "DataException -- " + '\'' + message +'\'';
+        return "DataException -- " + '\'' + message +'\'' + '\n';
     }
 }
