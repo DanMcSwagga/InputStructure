@@ -25,33 +25,43 @@ public class Controller {
 
 
         /* temporary subs - for testing purposes */
-        Subscriber sub2 = new Subscriber();
-        sub2.setSurname("stetsasdasf");
-        sub2.setName("asfafwwwe");
-        sub2.setMiddlename("olego");
-        sub2.setNickname("bruh");
-        sub2.setGroup(GroupAffiliation.INTERMEDIATE);
-        sub2.setTelephoneNumber("462-11-06");
-        sub2.setMobNumberPrimary("478-324-25-06");
-        sub2.setMobNumberSecondary("098-335-82-47");
-        sub2.setEmail("denssssast@afsr.net");
-        sub2.setSkype("dsfwra");
-        sub2.setAddress(new Address("04086", "Kyiv", "Olzhycha", "12", "2"));
+        Subscriber sub1 = new Subscriber();
+
+        sub1.setSurname("Stetsenko");
+        sub1.setName("Dan");
+        sub1.setMiddlename("Olegovych");
+        sub1.setNickname("bruh");
+        sub1.setGroup(GroupAffiliation.INTERMEDIATE);
+        sub1.setTelephoneNumber("462-11-06");
+        sub1.setMobNumberPrimary("097-324-25-06");
+        sub1.setMobNumberSecondary("098-335-82-47");
+        sub1.setEmail("denyast@ukr.net");
+        sub1.setSkype("denyast");
+        sub1.setAddress(new Address("04086", "Kyiv", "Olzhycha", "8", "18"));
+        Record rec1 = new Record(sub1, new Date(), new Date());
+
+        bookOfRecords.tryAddRecord(rec1);
 
 
-        Subscriber sub3 = new Subscriber("stetsest", "danests", "olegoset", "brutha", GroupAffiliation.LOW,
+        Subscriber sub2 = new Subscriber("stetsest", "danests", "olegoset", "bruh", GroupAffiliation.LOW,
                 "467-25-06", "467-333-25-06", "098-330-88-47", "denyast@ukr.net", "denyas",
                 new Address("04086", "Kyiv", "Olzhycha", "12", "2"));
+        Record rec2 = new Record(sub2, new Date(), new Date());
 
-        bookOfRecords.addRecord(sub2, new Date(), new Date());
-        bookOfRecords.addRecord(sub3, new Date(), new Date());
+        while (!bookOfRecords.tryAddRecord(rec2)) {
+            sub2.setNickname(inputString(sc, regexString, InputMessages.INPUT_NICKNAME, InputMessages.WRONG_INPUT_STRING));
+        }
+
 
         //Subscriber sub = inputSingleSubscriber(sc);
+        //Record rec = new Record(sub, new Date(), new Date());
+        //bookOfRecords.tryAddRecord(rec);
 
-        //bookOfRecords.addRecord(sub, new Date(), new Date());
+
 
         bookOfRecords.display();
     }
+
 
     private Subscriber inputSingleSubscriber(Scanner sc) {
         Subscriber sub = new Subscriber();
