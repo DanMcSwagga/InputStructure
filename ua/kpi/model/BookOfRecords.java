@@ -33,8 +33,11 @@ public class BookOfRecords {
         try {
             addRecord(record);
             return true;
-        } catch (NullPointerException | DataException e) {
+        } catch (NullPointerException e) {
             System.err.print(e);
+            return false;
+        } catch (DataException e) {
+            System.err.print(e.getErrorMessage());
             return false;
         }
     }

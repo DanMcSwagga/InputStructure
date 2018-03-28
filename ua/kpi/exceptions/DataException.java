@@ -13,8 +13,9 @@ public class DataException extends Exception {
         return wrongRecord;
     }
 
-    public String outputErrorMessage() {
-        return "This " + this.wrongRecord.getSubscriber().getNickname() + " is already taken. Please, choose another " + this.wrongRecord.getSubscriber().getNickname();
+    public String getErrorMessage() {
+        return "The nickname \'" + this.wrongRecord.getSubscriber().getNickname() +
+                "\' is already taken. Please, choose another available nickname.\n";
     }
 
 
