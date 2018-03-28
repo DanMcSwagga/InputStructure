@@ -1,18 +1,25 @@
 package ua.kpi.exceptions;
 
+import ua.kpi.model.Record;
+
 public class DataException extends Exception {
-    private String message;
+    private Record wrongRecord;
 
-    public DataException() {
-        this.message = null;
+    public DataException(Record record) {
+        this.wrongRecord = record;
     }
 
-    public DataException(String message) {
-        this.message = message;
+    public Record getWrongBook() {
+        return wrongRecord;
     }
+
+    public String outputErrorMessage() {
+        return "This " + this.wrongRecord.getSubscriber().getNickname() + " is already taken. Please, choose another " + this.wrongRecord.getSubscriber().getNickname();
+    }
+
 
     @Override
     public String toString() {
-        return "DataException -- " + '\'' + message +'\'' + '\n';
+        return "DataException -- " + '\n' + wrongRecord.toString() + '\n';
     }
 }

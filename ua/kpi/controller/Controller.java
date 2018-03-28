@@ -24,13 +24,15 @@ public class Controller {
         Scanner sc = new Scanner(System.in);
 
 
-        /* temporary subs - for testing purposes */
+        String SAME_NICKNAME = "test";
+
+        /* testing subscriber 1 */
         Subscriber sub1 = new Subscriber();
 
         sub1.setSurname("Stetsenko");
         sub1.setName("Dan");
         sub1.setMiddlename("Olegovych");
-        sub1.setNickname("bruh");
+        sub1.setNickname(SAME_NICKNAME);
         sub1.setGroup(GroupAffiliation.INTERMEDIATE);
         sub1.setTelephoneNumber("462-11-06");
         sub1.setMobNumberPrimary("097-324-25-06");
@@ -40,22 +42,22 @@ public class Controller {
         sub1.setAddress(new Address("04086", "Kyiv", "Olzhycha", "8", "18"));
         Record rec1 = new Record(sub1, new Date(), new Date());
 
-        bookOfRecords.tryAddRecord(rec1);
+        bookOfRecords.addRecordCheck(rec1);
 
-
-        Subscriber sub2 = new Subscriber("stetsest", "danests", "olegoset", "bruh", GroupAffiliation.LOW,
-                "467-25-06", "467-333-25-06", "098-330-88-47", "denyast@ukr.net", "denyas",
-                new Address("04086", "Kyiv", "Olzhycha", "12", "2"));
+        /* testing subscriber 2 */
+        Subscriber sub2 = new Subscriber("David", "Bowie", "Anderson", SAME_NICKNAME, GroupAffiliation.LOW,
+                "467-25-06", "467-333-11-11", "022-111-88-47", "bowie@gmail.com", "bowiedot",
+                new Address("23354", "London", "Paulers", "256", "67"));
         Record rec2 = new Record(sub2, new Date(), new Date());
 
-        while (!bookOfRecords.tryAddRecord(rec2)) {
+        while (!bookOfRecords.addRecordCheck(rec2)) {
             sub2.setNickname(inputString(sc, regexString, InputMessages.INPUT_NICKNAME, InputMessages.WRONG_INPUT_STRING));
         }
 
 
         //Subscriber sub = inputSingleSubscriber(sc);
         //Record rec = new Record(sub, new Date(), new Date());
-        //bookOfRecords.tryAddRecord(rec);
+        //bookOfRecords.addRecordCheck(rec);
 
 
 

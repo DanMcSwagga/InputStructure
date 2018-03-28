@@ -22,14 +22,14 @@ public class BookOfRecords {
 
         for (Record savedRecord : bookOfRecords) {
             if (record.getSubscriber().getNickname().equals(savedRecord.getSubscriber().getNickname())) {
-                throw new DataException("This nickname is already taken. Please choose another one");
+                throw new DataException(record);
             }
         }
 
         this.bookOfRecords.add(record);
     }
 
-    public boolean tryAddRecord(Record record) {
+    public boolean addRecordCheck(Record record) {
         try {
             addRecord(record);
             return true;
