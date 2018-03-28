@@ -45,13 +45,13 @@ public class Controller {
         bookOfRecords.addRecordCheck(rec1);
 
         /* testing subscriber 2 */
-        /*Subscriber sub2 = new Subscriber("David", "Bowie", "Anderson", SAME_NICKNAME, GroupAffiliation.LOW,
+        Subscriber sub2 = new Subscriber("David", "Bowie", "Anderson", SAME_NICKNAME, GroupAffiliation.LOW,
                 "467-25-06", "467-333-11-11", "022-111-88-47", "bowie@gmail.com", "bowiedot",
                 new Address("23354", "London", "Paulers", "256", "67"));
-        Record rec2 = new Record(sub2, new Date(), new Date());*/
-
-        Subscriber sub2 = inputSingleSubscriber(sc);
         Record rec2 = new Record(sub2, new Date(), new Date());
+
+        /*Subscriber sub2 = inputSingleSubscriber(sc);
+        Record rec2 = new Record(sub2, new Date(), new Date());*/
 
         while (!bookOfRecords.addRecordCheck(rec2)) {
             sub2.setNickname(inputString(sc, regexString, InputMessages.INPUT_NICKNAME, InputMessages.WRONG_INPUT_STRING));
